@@ -1,15 +1,4 @@
-﻿static int fact(int n)
-{
-    int resultat;
-
-    resultat = 1;
-    for (int i = 1; i <= n; i++)
-        resultat *= i;
-    return resultat;
-
-}
-
-Console.WriteLine(@"Выберите действие:
+﻿Console.WriteLine(@"Выберите действие:
 1. Сложить 2 числа
 2. Вычесть первое из второго
 3. Перемножить два числа
@@ -18,111 +7,93 @@ Console.WriteLine(@"Выберите действие:
 6. Найти квадратный корень из числа
 7. Найти 1 процент от числа
 9. Выйти из программы");
-while (true)
+do
 {
-    string c = Console.ReadLine();
-    double a;
-    double b;
-    double w;
-    Console.WriteLine(' ');
-    Console.WriteLine(' ');
+    Console.WriteLine();
+    Console.WriteLine("Введите номер программы");
+    int c = Convert.ToInt32(Console.ReadLine());
     {
-        if (c == "1")
+        if (c == 1)
         {
             Console.WriteLine("Введите первое значение");
-            a = double.Parse(Console.ReadLine());
+            int a = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите второе значение");
-            b = double.Parse(Console.ReadLine());
-            Console.WriteLine("Результат сложения = {0}", a + b);
-            Console.WriteLine(' ');
-            Console.WriteLine("Введите операцию еще раз");
-
+            int b = Convert.ToInt32(Console.ReadLine());
+            int summa = a + b;
+            Console.WriteLine("Результат сложения :" + summa);
         }
-        if (c == "2")
+        if (c == 2)
         {
             Console.WriteLine("Введите первое значение");
-            a = double.Parse(Console.ReadLine());
+            int a = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите второе значение");
-            b = double.Parse(Console.ReadLine());
-            Console.WriteLine("Результат вычитания = {0}", a - b);
-            Console.WriteLine(' ');
-            Console.WriteLine("Введите операцию еще раз");
-
-
+            int b = Convert.ToInt32(Console.ReadLine());
+            int raznost= a - b;
+            Console.WriteLine("Результат вычитания : "+ raznost);
         }
-        if (c == "3")
+        if (c == 3)
         {
             Console.WriteLine("Введите первое значение");
-            a = double.Parse(Console.ReadLine());
+            int a = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите второе значение");
-            b = double.Parse(Console.ReadLine());
-            Console.WriteLine("Результат умножения = {0}", a * b);
-            Console.WriteLine(' ');
-            Console.WriteLine("Введите операцию еще раз");
-
+            int b = Convert.ToInt32(Console.ReadLine());
+            int umnoj = a * b;
+            Console.WriteLine("Результат умножения : " + umnoj);
         }
-        if (c == "4")
+        if (c == 4)
         {
             Console.WriteLine("Введите первое значение");
-            a = double.Parse(Console.ReadLine());
+            int a = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите второе значение");
-            b = double.Parse(Console.ReadLine());
+            int b = Convert.ToInt32(Console.ReadLine());
+            int delenie = a / b;
             if (b == 0)
             {
-                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Hа 0 делить нельзя");
             }
             else
-                Console.WriteLine("Результат деления = {0}", a / b);
-            Console.WriteLine(' ');
-            Console.WriteLine("Введите операцию еще раз");
-
+                Console.WriteLine("Результат деления: " + delenie);
         }
-        if (c == "5")
+        if (c == 5)
         {
             Console.WriteLine("Введите первое значение");
-            a = double.Parse(Console.ReadLine());
+            int a = Convert.ToInt32(Console.ReadLine());
             Console.WriteLine("Введите второе значение");
-            b = double.Parse(Console.ReadLine());
-            Console.WriteLine("Результат возведения числа в степень = {0}", Math.Pow(a, b));
-            Console.WriteLine(' ');
-            Console.WriteLine("Введите операцию еще раз");
+            int b = Convert.ToInt32(Console.ReadLine());
+            double stepen = Math.Pow(a, b);
+            Console.WriteLine("Результат возведения числа в степень: " + stepen);
 
         }
-        if (c == "6")
+        if (c == 6)
         {
             Console.WriteLine("Введите число из которого будет найден корень");
-            w = double.Parse(Console.ReadLine());
-            Console.WriteLine("квадратный корень = {0}", Math.Sqrt(w));
-            Console.WriteLine(' ');
-            Console.WriteLine("Введите операцию еще раз");
-
-
+            int w = Convert.ToInt32(Console.ReadLine());
+           double koren = Math.Sqrt(w);
+            Console.WriteLine("квадратный корень: " + koren);
         }
-        if (c == "7")
+        if (c == 7)
         {
             Console.WriteLine("Введите число от которого будте найден 1%");
-            w = double.Parse(Console.ReadLine());
-            Console.WriteLine(" 1 процент от числа = {0}", w / 100);
-            Console.WriteLine(' ');
-            Console.WriteLine("Введите операцию еще раз");
-
+            int w = Convert.ToInt32(Console.ReadLine());
+            int oneproc = w / 100;
+            Console.WriteLine(" 1 процент от числа: " + oneproc);
         }
-        if (c == "8")
+        if (c == 8)
         {
-            Console.WriteLine("Введите число для которого нужно найти факториал:");
-            int h = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("{0}!={1}", h, fact(h));
-            Console.WriteLine("Введите операцию еще раз");
-
+            Console.WriteLine("Ввудите число которое нужно возвести в факториал: ");
+           int a = Convert.ToInt32(Console.ReadLine()); 
+            int fact = 1;
+            do
+            {
+                fact= fact *a;
+                a--;
+            } while (a > 0);
+            Console.WriteLine("Factorial :" + fact);
         }
-
-            if (c == "9")
+        if (c == 9)
         {
-            Environment.Exit(0);
+            break;
         }
-       
     }
 }
-Console.ReadKey();
+while (true);

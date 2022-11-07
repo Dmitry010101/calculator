@@ -1,604 +1,165 @@
-﻿using CakeOrder;
-using System.IO;
-
-int position = 3;
-string[] CakePar = new[] { "", "", "", "", "", "" };
-string CakeFile = null;
-DateTime dateTime = DateTime.Now;
-bool second = false;
+﻿using System;
+using System.ComponentModel.Design;
 
 
-
-void Menu()
+static void vtoroe ()
 {
-    Console.WriteLine("Выберите и купите торт из множества ниже перечисленных. \nВыбери свой торт\n---------------------------------------------------------------");
+    Console.WriteLine("   Сидеть дома 2 ");
+    Console.WriteLine("   Ехать в техникум 2 ");
+}
+static void tretie()
+{
+    Console.WriteLine("   Сидеть дома 3 ");
+    Console.WriteLine("   Ехать в техникум 3 ");
+}
+static void chetver()
+{
+    Console.WriteLine("   Сидеть дома 4  ");
+    Console.WriteLine("   Ехать в техникум 4 ");
+}
+static void piatoe()
+{
+    Console.WriteLine("   Сидеть дома 5");
+    Console.WriteLine("   Ехать в техникум 5");
+}
 
-    Console.WriteLine("  Форма торта");
-    Console.WriteLine("  Размер торта");
-    Console.WriteLine("  Вкус пироженного");
-    Console.WriteLine("  Количество слоев");
-    Console.WriteLine("  Глазурь");
-    Console.WriteLine("  Декор \n  --------");
-    Console.WriteLine("  Конец заказа");
-
-    Console.Write("\n цена в  руб: ");
-    CakeOrder.countPrice.CountingResult();
-
-    Console.WriteLine(" Твой торт:");
-    for (int i = 0; i < 6; i++)
+    static void shestoe()
     {
-        Console.WriteLine(CakePar[i]);
+        Console.WriteLine("   Сидеть дома 6 ");
+        Console.WriteLine("   Ехать в техникум 6");
     }
-}
+    static void strelki()
+    {
+        int pos = 1;
+        Console.SetCursorPosition(0, pos);
+        Console.WriteLine("->");
+    }
+    DateTime date = new DateTime(2022, 10, 1);
 
-int i;
-void Cl()
-{
-    Console.SetCursorPosition(0, 0);
-    Console.Clear();
-}
+    int pos = 1;
 
-while (second == true) ; 
-{
+    Console.WriteLine(date);
     while (true)
     {
-        Cl();
-        Menu();
-        Console.SetCursorPosition(0, position);
-        Console.WriteLine("->");
-
+        strelki();
         ConsoleKeyInfo key = Console.ReadKey();
-
-        if (key.Key == ConsoleKey.UpArrow && position >= 4)
+        Console.Clear();
+        if (key.Key == ConsoleKey.UpArrow)
         {
-            if (position == 10)
-            {
-                position = 8;
-                continue;
-            }
-
-            position--;
-            continue;
+            pos--;
         }
-
-        if (key.Key == ConsoleKey.DownArrow && position <= 9)
+        if (key.Key == ConsoleKey.DownArrow)
         {
-            if (position == 8)
-            {
-                position = 10;
-                continue;
-            }
-
-            position++;
-            continue;
+            pos++;
         }
-
+        if (key.Key == ConsoleKey.LeftArrow)
+        {
+            date = date.AddDays(-1);
+            Console.WriteLine(date);
+        }
+        if (key.Key == ConsoleKey.RightArrow)
+        {
+            date = date.AddDays(+1);
+            Console.WriteLine(date);
+        }
+    if (date.Day == 2)
+    {
+        Console.Clear();
+        Console.WriteLine(date);
+        vtoroe();
         if (key.Key == ConsoleKey.Enter)
         {
-            if (position == 3)
+            if (pos == 1)
             {
-
-                while (!false)
-                {
-                    CakeOrder.ParametersCake.Shape();
-                    Console.SetCursorPosition(0, position);
-                    Console.WriteLine("->");
-
-                    ConsoleKeyInfo keyChape = Console.ReadKey();
-                    {
-                        
-
-                        if (keyChape.Key == ConsoleKey.Enter)
-                        {
-
-                            if (position == 3)
-                            {
-                                CakeOrder.countPrice.One = 300;
-                                CakePar[0] = " Форма: круг";
-                                break;
-                            }
-
-                            if (position == 4)
-                            {
-                                CakeOrder.countPrice.One = 500;
-                                CakePar[0] = " Форма: квадрат";
-                                position = 3;
-                                break;
-                            }
-
-                            if (position == 5)
-                            {
-                                CakeOrder.countPrice.One = 550;
-                                CakePar[0] = " Форма: прямоугольник";
-                                position = 3;
-                                break;
-                            }
-
-                            if (position == 6)
-                            {
-                                CakeOrder.countPrice.One = 600;
-                                CakePar[0] = " Форма: бабочка";
-                                position = 3;
-                                break;
-                            }
-                        }
-
-                        if (keyChape.Key == ConsoleKey.UpArrow && position >= 4)
-                        {
-                            position--;
-                            continue;
-                        }
-
-                        if (keyChape.Key == ConsoleKey.DownArrow && position <= 5)
-                        {
-                            position++;
-                            continue;
-                        }
-
-                        if (position <= 3)
-                        {
-                            position = 3;
-                            continue;
-                        }
-
-                        if (position >= 6)
-                        {
-                            position = 6;
-                            continue;
-                        }
-
-                        if (keyChape.Key == ConsoleKey.Escape)
-                        {
-                            position = 3;
-                            break;
-                        }
-
-
-                    }
-                    if (position == 4)
-                    {
-
-
-                    }
-
-                }
-
+                Console.Clear();
+                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 2: " + "\n" + "   Сплю  2");
             }
-
-            if (position == 4)
+            else if (pos == 2)
             {
-                while (!false)
-                {
-                    CakeOrder.ParametersCake.size();
-                    Console.SetCursorPosition(0, position);
-                    Console.WriteLine("->");
-
-                    ConsoleKeyInfo keyChape = Console.ReadKey();
-                    {
-
-                        if (keyChape.Key == ConsoleKey.Enter)
-                        {
-
-                            if (position == 3)
-                            {
-                                CakeOrder.countPrice.Two = 100;
-                                CakePar[1] = " Размер: маленький";
-                                position = 3;
-                                break;
-                            }
-
-                            if (position == 4)
-                            {
-                                CakeOrder.countPrice.Two = 500;
-                                CakePar[1] = " Размер: средний";
-                                position = 3;
-                                break;
-                            }
-
-                            if (position == 5)
-                            {
-                                CakeOrder.countPrice.Two = 1000;
-                                CakePar[1] = " Размер: большой";
-                                position = 3;
-                                break;
-                            }
-                        }
-
-                        if (keyChape.Key == ConsoleKey.UpArrow && position >= 4)
-                        {
-                            position--;
-                            continue;
-                        }
-
-                        if (keyChape.Key == ConsoleKey.DownArrow && position <= 5)
-                        {
-                            position++;
-                            continue;
-                        }
-
-                        if (position <= 3)
-                        {
-                            position = 3;
-                            continue;
-                        }
-
-                        if (position >= 5)
-                        {
-                            position = 5;
-                            continue;
-                        }
-
-                        if (keyChape.Key == ConsoleKey.Escape)
-                        {
-                            break;
-                        }
-                    }
-                }
-
-            }
-
-            if (position == 5)
-            {
-                position = 3;
-                while (!false)
-                {
-
-                    CakeOrder.ParametersCake.tasteOfCakes();
-                    Console.SetCursorPosition(0, position);
-                    Console.WriteLine("->");
-
-                    ConsoleKeyInfo keyChape = Console.ReadKey();
-                    {
-
-                        if (keyChape.Key == ConsoleKey.Enter)
-                        {
-
-                            if (position == 3)
-                            {
-                                CakeOrder.countPrice.Three = 150;
-                                CakePar[2] = " Вкус торта: шоколад";
-                                position = 3;
-                                break;
-                            }
-
-                            if (position == 4)
-                            {
-                                CakeOrder.countPrice.Three = 200;
-                                CakePar[2] = " Вкус торта: карамель";
-                                position = 3;
-                                break;
-                            }
-
-                            if (position == 5)
-                            {
-                                CakeOrder.countPrice.Three = 250;
-                                CakePar[2] = " Вкус торта: ваниль";
-                                position = 3;
-                                break;
-                            }
-
-                            if (position == 6)
-                            {
-                                CakeOrder.countPrice.Three = 300;
-                                CakePar[2] = " Вкус торта: вишня";
-                                position = 3;
-                                break;
-                            }
-
-                            if (position == 7)
-                            {
-                                CakeOrder.countPrice.Three = 350;
-                                CakePar[2] = " Вкус торта: какао";
-                                position = 3;
-                                break;
-                            }
-                        }
-
-                        if (keyChape.Key == ConsoleKey.UpArrow && position >= 4)
-                        {
-                            position--;
-                            continue;
-                        }
-
-                        if (keyChape.Key == ConsoleKey.DownArrow && position <= 6)
-                        {
-                            position++;
-                            continue;
-                        }
-
-                        if (position <= 3)
-                        {
-                            position = 3;
-                            continue;
-                        }
-
-                        if (position >= 5)
-                        {
-                            position = 5;
-                            continue;
-                        }
-
-                        if (keyChape.Key == ConsoleKey.Escape)
-                        {
-                            break;
-                        }
-
-
-                    }
-                }
-            }
-
-            if (position == 6)
-            {
-                position = 3;
-                while (!false)
-                {
-                    CakeOrder.ParametersCake.layers();
-                    Console.SetCursorPosition(0, position);
-                    Console.WriteLine("->");
-
-                    ConsoleKeyInfo keyChape = Console.ReadKey();
-                    {
-
-                        if (keyChape.Key == ConsoleKey.Enter)
-                        {
-
-                            if (position == 3)
-                            {
-                                CakeOrder.countPrice.Four = 100;
-                                CakePar[3] = " Количество слоев: 1 корж";
-                                position = 3;
-                                break;
-                            }
-
-                            if (position == 4)
-                            {
-                                CakeOrder.countPrice.Four = 200;
-                                CakePar[3] = " Количество слоев: 2 коржа";
-                                position = 3;
-                                break;
-                            }
-
-                            if (position == 5)
-                            {
-                                CakeOrder.countPrice.Four = 300;
-                                CakePar[3] = " Количество слоев: 3 коржа";
-                                position = 3;
-                                break;
-                            }
-
-                            if (position == 6)
-                            {
-                                CakeOrder.countPrice.Four = 400;
-                                CakePar[3] = " Количество слоев: 4 коржа";
-                                position = 3;
-                                break;
-                            }
-
-                            if (position == 7)
-                            {
-                                CakeOrder.countPrice.Four = 500;
-                                CakePar[3] = " Количество слоев: 5 коржей";
-                                position = 3;
-                                break;
-                            }
-                        }
-
-                        if (keyChape.Key == ConsoleKey.UpArrow && position >= 4)
-                        {
-                            position--;
-                            continue;
-                        }
-
-                        if (keyChape.Key == ConsoleKey.DownArrow && position <= 6)
-                        {
-                            position++;
-                            continue;
-                        }
-
-                        if (position <= 3)
-                        {
-                            position = 3;
-                            continue;
-                        }
-
-                        if (position >= 7)
-                        {
-                            position = 7;
-                            continue;
-                        }
-
-                        if (keyChape.Key == ConsoleKey.Escape)
-                        {
-                            break;
-                        }
-                    }
-                }
-            }
-
-            if (position == 7)
-            {
-                position = 3;
-                while (!false)
-                {
-                    CakeOrder.ParametersCake.glaze();
-                    Console.SetCursorPosition(0, position);
-                    Console.WriteLine("->");
-
-                    ConsoleKeyInfo keyChape = Console.ReadKey();
-                    {
-
-                        if (keyChape.Key == ConsoleKey.Enter)
-                        {
-
-                            if (position == 3)
-                            {
-                                CakeOrder.countPrice.Five = 150;
-                                CakePar[4] = " Глазурь: да";
-                                position = 3;
-                                break;
-                            }
-
-                            if (position == 4)
-                            {
-                                CakeOrder.countPrice.Five = 0;
-                                CakePar[4] = " Глазурь: нет";
-                                position = 3;
-                                break;
-                            }
-                        }
-
-                        if (keyChape.Key == ConsoleKey.UpArrow && position >= 4)
-                        {
-                            position--;
-                            continue;
-                        }
-
-                        if (keyChape.Key == ConsoleKey.DownArrow && position <= 4)
-                        {
-                            position++;
-                            continue;
-                        }
-
-                        if (position <= 3)
-                        {
-                            position = 3;
-                            continue;
-                        }
-
-                        if (position >= 4)
-                        {
-                            position = 4;
-                            continue;
-                        }
-
-                        if (keyChape.Key == ConsoleKey.Escape)
-                        {
-                            break;
-                        }
-
-                    }
-                }
-            }
-
-            if (position == 8)
-            {
-                position = 3;
-                while (!false)
-                {
-                    CakeOrder.ParametersCake.decor();
-                    Console.SetCursorPosition(0, position);
-                    Console.WriteLine("->");
-
-                    ConsoleKeyInfo keyChape = Console.ReadKey();
-                    {
-
-                        if (keyChape.Key == ConsoleKey.Enter)
-                        {
-
-                            if (position == 3)
-                            {
-                                CakeOrder.countPrice.Six = 50;
-                                CakePar[5] = "Декор: какао";
-                                position = 3;
-                                break;
-                            }
-
-                            if (position == 4)
-                            {
-                                CakeOrder.countPrice.Six = 100;
-                                CakePar[5] = " Декор: шоколад";
-                                position = 3;
-                                break;
-                            }
-
-                            if (position == 5)
-                            {
-                                CakeOrder.countPrice.Six = 150;
-                                CakePar[5] = " Декор: карамель";
-                                position = 3;
-                                break;
-                            }
-
-                            if (position == 6)
-                            {
-                                CakeOrder.countPrice.Six = 200;
-                                CakePar[5] = " Декор: ваниль";
-                                position = 3;
-                                break;
-                            }
-                        }
-
-                        if (keyChape.Key == ConsoleKey.UpArrow && position >= 4)
-                        {
-                            position--;
-                            continue;
-                        }
-
-                        if (keyChape.Key == ConsoleKey.DownArrow && position <= 5)
-                        {
-                            position++;
-                            continue;
-                        }
-
-                        if (position <= 3)
-                        {
-                            position = 3;
-                            continue;
-                        }
-
-                        if (position >= 6)
-                        {
-                            position = 6;
-                            continue;
-                        }
-
-                        if (keyChape.Key == ConsoleKey.Escape)
-                        {
-                            break;
-                        }
-                    }
-                }
-            }
-
-
-            if (position == 10)
-            {
-
-                for (int j = 0; j < 6; j++)
-                {
-                    CakeFile += CakePar[j];
-                }
-
-                File.AppendAllText("C:\\Users\\User\\Desktop\\тортики.txt" , "\nВремя заказа: " +"  "+ dateTime );
-                File.AppendAllText("C:\\Users\\User\\Desktop\\тортики.txt" ,"\nЦена: " + Convert.ToString(CakeOrder.countPrice.Result) + "руб");
-                File.AppendAllText("C:\\Users\\User\\Desktop\\тортики.txt",  "\nПараметры торта: " + CakeFile + "\n");
-
-                Cl();
-                Console.WriteLine("Если вы хотите начать делать заказ занова нажмите A");
-                ConsoleKeyInfo keyNext = Console.ReadKey();
-                if (keyNext.Key == ConsoleKey.A)
-                {
-                    second = true;
-                    CakeOrder.countPrice.One = 0;
-                    CakeOrder.countPrice.Two = 0;
-                    CakeOrder.countPrice.Three = 0;
-                    CakeOrder.countPrice.Four = 0;
-                    CakeOrder.countPrice.Five = 0;
-                    CakeOrder.countPrice.Six = 0;
-                    CakeOrder.countPrice.Result = 0;
-
-                    for (int l1 = 0; l1 < CakePar.Length; l1++)
-                    {
-                        CakePar[l1] = null;
-                    }
-                }
-                else
-                {
-                    break;
-                }
+                Console.Clear();
+                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 2: " + "\n " + "   Учи философию 2");
             }
         }
     }
-} 
+
+
+    if (date.Day == 3)
+    {
+        Console.Clear();
+        Console.WriteLine(date);
+        tretie();
+        if (key.Key == ConsoleKey.Enter)
+        {
+            if (pos == 1)
+            {
+                Console.Clear();
+                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 3: " + "\n" + "   Сплю  3");
+            }
+            else if (pos == 2)
+            {
+                Console.Clear();
+                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 3: " + "\n " + "   Учи философию 3");
+            }
+        }
+    }
+    if (date.Day == 4)
+    {
+        Console.Clear();
+        Console.WriteLine(date);
+        chetver();
+        if (key.Key == ConsoleKey.Enter)
+        {
+            if (pos == 1)
+            {
+                Console.Clear();
+                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 4: " + "\n" + "   Сплю 4 ");
+            }
+            else if (pos == 2)
+            {
+                Console.Clear();
+                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 4:" + "\n " + "   Учу философию 4 ");
+            }
+        }
+    }
+    if (date.Day == 5)
+    {
+        Console.Clear();
+        Console.WriteLine(date);
+        piatoe();
+        if (key.Key == ConsoleKey.Enter)
+        {
+            if (pos == 1)
+            {
+                Console.Clear();
+                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 5: " + "\n" + "   Сплю 5 ");
+            }
+            else if (pos == 2)
+            {
+                Console.Clear();
+                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 5: " + "\n " + "   Учу философию 5 ");
+            }
+        }
+    }
+    if (date.Day == 6)
+    {
+        Console.Clear();
+        Console.WriteLine(date);
+        shestoe();
+        if (key.Key == ConsoleKey.Enter)
+        {
+            if (pos == 1)
+            {
+                Console.Clear();
+                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 6: " + "\n" + "   Сплю 6 ");
+            }
+            else if (pos == 2)
+            {
+                Console.Clear();
+                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 6: " + "\n " + "   Учу философию 6 ");
+            }
+        }
+    }
+        }
+    
+
 

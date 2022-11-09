@@ -1,165 +1,407 @@
-﻿using System;
-using System.ComponentModel.Design;
-
-
-static void vtoroe ()
+﻿using cakes;
+namespace Торт
 {
-    Console.WriteLine("   Сидеть дома 2 ");
-    Console.WriteLine("   Ехать в техникум 2 ");
+    internal class Program
+    {
+
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+
+                menu_text();
+
+            }
+            Console.Clear();
+        }
+
+        static void menu_text()
+        {
+            Console.WriteLine("Заказ тортов" + "\n" + "Выберите параметры торта" + "\n" + "-----------------------------" + "\n" + "  Форма" + "\n" + "  Размер" + "\n" + "  Начинка" + "\n" + "  Количество коржей" + "\n" + "  Глазурь" + "\n" + "  Декор" + "\n" + "  Конец заказа" + "\n" + "---------------------------------" + "\n");
+            
+        }
+        static void menu()
+        {
+            
+            while (true)
+            {
+                
+                int pos = 1;
+                Console.SetCursorPosition(0, 3);
+                Console.WriteLine("->");
+                ConsoleKeyInfo cursor = Console.ReadKey();
+                while (cursor.Key != ConsoleKey.Escape)
+                {
+                    if (cursor.Key == ConsoleKey.DownArrow)
+                    {
+                        Console.SetCursorPosition(0, pos++);
+                        Console.WriteLine("->");
+
+                    }
+                    else if (cursor.Key == ConsoleKey.UpArrow)
+                    {
+                        Console.SetCursorPosition(0, pos--);
+                        Console.WriteLine("->");
+                    }
+                      if (cursor.Key == ConsoleKey.Enter && pos == 3)
+                    {
+                        Console.Clear();
+                        menuu per1 = new menuu("  квадрат", 200);
+                        per1.per();
+                        menuu per2 = new menuu("  круг", 200);
+                        per2.per();
+                        menuu per3 = new menuu("  треугольник", 150);
+                        per3.per();
+                        int Posin = 0;
+                        Console.SetCursorPosition(0, Posin);
+                        Console.WriteLine("->");
+                        ConsoleKeyInfo ram = Console.ReadKey();
+                        while (ram.Key != ConsoleKey.Enter)
+                        {
+                            if (ram.Key == ConsoleKey.DownArrow)
+                            {
+                                Console.SetCursorPosition(0, Posin++);
+                                Console.WriteLine("->");
+                            }
+                            if (ram.Key == ConsoleKey.UpArrow)
+                            {
+                                Console.SetCursorPosition(0, Posin--);
+                                Console.WriteLine("->");
+                            }
+                            if (Posin == 0)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {
+                                    File.WriteAllText("C:\\Users\\User\\Рабочий стол\\тортики.txt", per1.desc + " - " + per1.cost);
+                                }
+                            }
+                            if (Posin == 1)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {                                                     
+                                    File.WriteAllText("C:\\Users\\User\\Рабочий стол\\тортики.txt", per2.desc + " - " + per2.cost);
+                                }
+                            }
+                            if (Posin == 2)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {
+                                    File.WriteAllText("C:\\Users\\User\\Рабочий стол\\тортики.txt", per3.desc + " - " + per3.cost);
+                                }
+                            }
+                            Console.Clear();
+                            per1.per();
+                            per2.per();
+                            per3.per();
+                            Console.SetCursorPosition(0,Posin);
+                            Console.WriteLine("->");
+                            ram = Console.ReadKey();
+                        }
+                        string sum1 = per1.desc + per2.desc+ per3.desc;
+                        Console.WriteLine(sum1);
+                    }
+                    if (cursor.Key == ConsoleKey.Enter && pos == 4)
+                    {
+                        Console.Clear();
+                        menuu per1 = new menuu("  маленький", 150);
+                        per1.per();
+                        menuu per2 = new menuu("  средний", 200);
+                        per2.per();
+                        menuu per3 = new menuu("  большой", 250);
+                        per3.per();
+                        int Posin = 0;
+                        Console.SetCursorPosition(0, Posin);
+                        Console.WriteLine("->");
+                        ConsoleKeyInfo ram = Console.ReadKey();
+                        while (ram.Key != ConsoleKey.Enter)
+                        {
+                            if (ram.Key == ConsoleKey.DownArrow)
+                            {
+                                Console.SetCursorPosition(0, Posin++);
+                                Console.WriteLine("->");
+                            }
+                            if (ram.Key == ConsoleKey.UpArrow)
+                            {
+                                Console.SetCursorPosition(0, Posin--);
+                                Console.WriteLine("->");
+                            }
+                            if (Posin == 0)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {
+                                    File.WriteAllText("C:\\Users\\User\\Рабочий стол\\тортики.txt", per1.desc + " - " + per1.cost);
+                                }
+                            }
+                            if (Posin == 1)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {
+                                    File.WriteAllText("C:\\Users\\User\\Рабочий стол\\тортики.txt", per2.desc + " - " + per2.cost);
+                                }
+                            }
+                            if (Posin == 2)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {
+                                    File.WriteAllText("C:\\Users\\User\\Рабочий стол\\тортики.txt", per3.desc + " - " + per3.cost);
+                                }
+                            }
+                            Console.Clear();
+                            per1.per();
+                            per2.per();
+                            per3.per();
+                            Console.SetCursorPosition(0, Posin);
+                            Console.WriteLine("->");
+                            ram = Console.ReadKey();
+                        }
+                        string sum2 = per1.desc + per2.desc + per3.desc;
+                    }
+                    if (cursor.Key == ConsoleKey.Enter && pos == 5)
+                    {
+                        Console.Clear();
+                        menuu per1 = new menuu("  клубника", 200);
+                        per1.per();
+                        menuu per2 = new menuu("  карамель", 200);
+                        per2.per();
+                        menuu per3 = new menuu("  шоколад", 200); 
+                        per3.per();
+                        int Posin = 0;
+                        Console.SetCursorPosition(0, Posin);
+                        Console.WriteLine("->");
+                        ConsoleKeyInfo ram = Console.ReadKey();
+                        while (ram.Key != ConsoleKey.Enter)
+                        {
+                            if (ram.Key == ConsoleKey.DownArrow)
+                            {
+                                Console.SetCursorPosition(0, Posin++);
+                                Console.WriteLine("->");
+                            }
+                            if (ram.Key == ConsoleKey.UpArrow)
+                            {
+                                Console.SetCursorPosition(0, Posin--);
+                                Console.WriteLine("->");
+                            }
+                            if (Posin == 0)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {
+                                    File.WriteAllText("C:\\Пользователи\\User\\рабочий стол\\тортики.txt", per1.desc + " - " + per1.cost);
+                                }
+                            }
+                            if (Posin == 1)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {
+                                    File.WriteAllText("C:\\Пользователи\\User\\рабочий стол\\тортики.txt", per2.desc + " - " + per2.cost);
+                                }
+                            }
+                            if (Posin == 2)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {
+                                    File.WriteAllText("C:\\Пользователи\\User\\рабочий стол\\тортики.txt", per3.desc + " - " + per3.cost);
+                                }
+                            }
+                            Console.Clear();
+
+                            per1.per();
+                            per2.per();
+                            per3.per(); ;
+                            Console.SetCursorPosition(0, Posin);
+                            Console.WriteLine("->");
+                            ram = Console.ReadKey();
+                        }
+                    }
+                    if (cursor.Key == ConsoleKey.Enter && pos == 6)
+                    {
+                        Console.Clear();
+                        menuu per1 = new menuu("  два", 200);
+                        per1.per();
+                        menuu per2 = new menuu("  три", 300);
+                        per2.per();
+                        menuu per3 = new menuu("  четыре", 400);
+                        per3.per();
+                        int Posin = 0;
+                        Console.SetCursorPosition(0, Posin);
+                        Console.WriteLine("->");
+                        ConsoleKeyInfo ram = Console.ReadKey();
+                        while (ram.Key != ConsoleKey.Enter)
+                        {
+                            if (ram.Key == ConsoleKey.DownArrow)
+                            {
+                                Console.SetCursorPosition(0, Posin++);
+                                Console.WriteLine("->");
+                            }
+                            if (ram.Key == ConsoleKey.UpArrow)
+                            {
+                                Console.SetCursorPosition(0, Posin--);
+                                Console.WriteLine("->");
+                            }
+                            if (Posin == 0)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {
+                                    File.WriteAllText("C:\\Users\\User\\Рабочий стол\\тортики.txt", per1.desc + " - " + per1.cost);
+                                }
+                            }
+                            if (Posin == 1)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {
+                                    File.WriteAllText("C:\\Users\\User\\Рабочий стол\\тортики.txt", per2.desc + " - " + per2.cost);
+                                }
+                            }
+                            if (Posin == 2)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {
+                                    File.WriteAllText("C:\\Users\\User\\Рабочий стол\\тортики.txt", per3.desc + " - " + per3.cost);
+                                }
+                            }
+                            Console.Clear();
+                            per1.per();
+                            per2.per();
+                            per3.per();
+                            Console.SetCursorPosition(0, Posin);
+                            Console.WriteLine("->");
+                            ram = Console.ReadKey();
+                        }
+                    }
+                    if (cursor.Key == ConsoleKey.Enter && pos == 7)
+                    {
+                        Console.Clear();
+                        menuu per1 = new menuu("  молочный шоколад", 200);
+                        per1.per();
+                        menuu per2 = new menuu("  горький шоколад", 200);
+                        per2.per();
+                        menuu per3 = new menuu("  белый шоколад", 200);
+                         per3.per();
+                        int Posin = 0;
+                        Console.SetCursorPosition(0, Posin);
+                        Console.WriteLine("->");
+                        ConsoleKeyInfo ram = Console.ReadKey();
+                        while (ram.Key != ConsoleKey.Enter)
+                        {
+                            if (ram.Key == ConsoleKey.DownArrow)
+                            {
+                                Console.SetCursorPosition(0, Posin++);
+                                Console.WriteLine("->");
+                            }
+                            if (ram.Key == ConsoleKey.UpArrow)
+                            {
+                                Console.SetCursorPosition(0, Posin--);
+                                Console.WriteLine("->");
+                            }
+                            if (Posin == 0)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {
+                                    File.WriteAllText("C:\\Users\\User\\Рабочий стол\\тортики.txt", per1.desc + " - " + per1.cost);
+                                }
+                            }
+                            if (Posin == 1)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {
+                                    File.WriteAllText("C:\\Users\\User\\Рабочий стол\\тортики.txt", per2.desc + " - " + per2.cost);
+                                }
+                            }
+                            if (Posin == 2)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {
+                                    File.WriteAllText("C:\\Users\\User\\Рабочий стол\\тортики.txt", per3.desc + " - " + per3.cost);
+                                }
+                            }
+                            Console.Clear();
+                            per1.per();
+                            per2.per();
+                            per3.per(); ;
+                            Console.SetCursorPosition(0, Posin);
+                            Console.WriteLine("->");
+                            ram = Console.ReadKey();
+                        }
+                    }
+                    if (cursor.Key == ConsoleKey.Enter && pos == 8)
+                    {
+                        Console.Clear();
+                        menuu per1 = new menuu("  кокосовая стружка", 200);
+                        per1.per();
+                        menuu per2 = new menuu("  мастика", 300);
+                        per2.per();
+                        menuu per3 = new menuu("  шоколадная стружка", 150);
+                       per3.per();
+                        int Posin = 0;
+                        Console.SetCursorPosition(0, Posin);
+                        Console.WriteLine("->");
+                        ConsoleKeyInfo ram = Console.ReadKey();
+                        while (ram.Key != ConsoleKey.Enter)
+                        {
+                            if (ram.Key == ConsoleKey.DownArrow)
+                            {
+                                Console.SetCursorPosition(0, Posin++);
+                                Console.WriteLine("->");
+                            }
+                            if (ram.Key == ConsoleKey.UpArrow)
+                            {
+                                Console.SetCursorPosition(0, Posin--);
+                                Console.WriteLine("->");
+                            }
+                            if (Posin == 0)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                { 
+                                    File.WriteAllText("C:\\Users\\User\\Рабочий стол\\тортики.txt", per1.desc + " - " + per1.cost);
+                                }
+                            }
+                            if (Posin == 1)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {
+                                    File.WriteAllText("C:\\Users\\User\\Рабочий стол\\тортики.txt", per2.desc + " - " + per2.cost);
+                                }
+                            }
+                            if (Posin == 2)
+                            {
+                                if (ram.Key == ConsoleKey.Enter)
+                                {
+                                    File.WriteAllText("C:\\Users\\User\\Рабочий стол\\тортики.txt", per3.desc + " - " + per3.cost);
+                                }
+                            }
+                            Console.Clear();
+                            per1.per();
+                            per2.per();
+                            per3.per();
+                            Console.SetCursorPosition(0, Posin);
+                            Console.WriteLine("->");
+                            ram = Console.ReadKey();
+                        }
+                    }
+                    if (cursor.Key == ConsoleKey.Enter && pos == 9)
+                    {
+                        Console.Clear();
+                        Console.WriteLine("спасибо за заказ! НАжмите ESC для выхода");
+                        ConsoleKeyInfo exit = Console.ReadKey();
+                        while (true)
+                        {
+                            if (exit.Key == ConsoleKey.Escape)
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                menu();
+                            }
+                        }
+                    }
+                    
+                    Console.Clear();
+                    Console.WriteLine("Заказ тортов" + "\n" + "Выберите параметры торта" + "\n" + "-----------------------------" + "\n" + "  Форма" + "\n" + "  Размер" + "\n" + "  Начинка" + "\n" + "  Количество коржей" + "\n" + "  Глазурь" + "\n" + "  Декор" + "\n" + "  Конец заказа" + "\n" + "---------------------------------" + "\n" );
+                    Console.SetCursorPosition(0, pos);
+                    Console.WriteLine("->");
+                    cursor = Console.ReadKey();
+                }
+            }
+        }
+    }
 }
-static void tretie()
-{
-    Console.WriteLine("   Сидеть дома 3 ");
-    Console.WriteLine("   Ехать в техникум 3 ");
-}
-static void chetver()
-{
-    Console.WriteLine("   Сидеть дома 4  ");
-    Console.WriteLine("   Ехать в техникум 4 ");
-}
-static void piatoe()
-{
-    Console.WriteLine("   Сидеть дома 5");
-    Console.WriteLine("   Ехать в техникум 5");
-}
-
-    static void shestoe()
-    {
-        Console.WriteLine("   Сидеть дома 6 ");
-        Console.WriteLine("   Ехать в техникум 6");
-    }
-    static void strelki()
-    {
-        int pos = 1;
-        Console.SetCursorPosition(0, pos);
-        Console.WriteLine("->");
-    }
-    DateTime date = new DateTime(2022, 10, 1);
-
-    int pos = 1;
-
-    Console.WriteLine(date);
-    while (true)
-    {
-        strelki();
-        ConsoleKeyInfo key = Console.ReadKey();
-        Console.Clear();
-        if (key.Key == ConsoleKey.UpArrow)
-        {
-            pos--;
-        }
-        if (key.Key == ConsoleKey.DownArrow)
-        {
-            pos++;
-        }
-        if (key.Key == ConsoleKey.LeftArrow)
-        {
-            date = date.AddDays(-1);
-            Console.WriteLine(date);
-        }
-        if (key.Key == ConsoleKey.RightArrow)
-        {
-            date = date.AddDays(+1);
-            Console.WriteLine(date);
-        }
-    if (date.Day == 2)
-    {
-        Console.Clear();
-        Console.WriteLine(date);
-        vtoroe();
-        if (key.Key == ConsoleKey.Enter)
-        {
-            if (pos == 1)
-            {
-                Console.Clear();
-                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 2: " + "\n" + "   Сплю  2");
-            }
-            else if (pos == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 2: " + "\n " + "   Учи философию 2");
-            }
-        }
-    }
-
-
-    if (date.Day == 3)
-    {
-        Console.Clear();
-        Console.WriteLine(date);
-        tretie();
-        if (key.Key == ConsoleKey.Enter)
-        {
-            if (pos == 1)
-            {
-                Console.Clear();
-                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 3: " + "\n" + "   Сплю  3");
-            }
-            else if (pos == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 3: " + "\n " + "   Учи философию 3");
-            }
-        }
-    }
-    if (date.Day == 4)
-    {
-        Console.Clear();
-        Console.WriteLine(date);
-        chetver();
-        if (key.Key == ConsoleKey.Enter)
-        {
-            if (pos == 1)
-            {
-                Console.Clear();
-                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 4: " + "\n" + "   Сплю 4 ");
-            }
-            else if (pos == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 4:" + "\n " + "   Учу философию 4 ");
-            }
-        }
-    }
-    if (date.Day == 5)
-    {
-        Console.Clear();
-        Console.WriteLine(date);
-        piatoe();
-        if (key.Key == ConsoleKey.Enter)
-        {
-            if (pos == 1)
-            {
-                Console.Clear();
-                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 5: " + "\n" + "   Сплю 5 ");
-            }
-            else if (pos == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 5: " + "\n " + "   Учу философию 5 ");
-            }
-        }
-    }
-    if (date.Day == 6)
-    {
-        Console.Clear();
-        Console.WriteLine(date);
-        shestoe();
-        if (key.Key == ConsoleKey.Enter)
-        {
-            if (pos == 1)
-            {
-                Console.Clear();
-                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 6: " + "\n" + "   Сплю 6 ");
-            }
-            else if (pos == 2)
-            {
-                Console.Clear();
-                Console.WriteLine("Выбрана дата:" + " " + date + "\n" + "------------------------------------" + "\n" + "   Описание 6: " + "\n " + "   Учу философию 6 ");
-            }
-        }
-    }
-        }
-    
-
-

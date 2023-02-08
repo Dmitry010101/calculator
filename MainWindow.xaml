@@ -1,0 +1,20 @@
+﻿<Window x:Class="КрестикиНолики.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="334">
+    <Grid HorizontalAlignment="Right" Width="334" Background="Red">
+        <Button x:Name="b1" Content="" HorizontalAlignment="Left" Margin="33,74,0,0" VerticalAlignment="Top" Height="81" Width="85" Click="button_Click" IsEnabled="False" Background="Yellow"/>
+        <Button x:Name="b2" Content="" HorizontalAlignment="Center" Margin="0,74,0,0" VerticalAlignment="Top" Height="81" Width="88" Click="button_Click" IsEnabled="False" Background="Yellow"/>
+        <Button x:Name="b3" Content="" HorizontalAlignment="Left" Margin="218,74,0,0" VerticalAlignment="Top" Height="81" Width="82" Click="button_Click" IsEnabled="False" Background="Yellow"/>
+        <Button x:Name="b4" Content="" HorizontalAlignment="Left" Margin="33,160,0,0" VerticalAlignment="Top" Height="78" Width="85" Click="button_Click" IsEnabled="False" Background="Yellow"/>
+        <Button x:Name="b5" Content="" HorizontalAlignment="Center" Margin="0,160,0,0" VerticalAlignment="Top" Height="78" Width="92" Click="button_Click" IsEnabled="False" Background="Yellow"/>
+        <Button x:Name="b6" Content="" HorizontalAlignment="Left" Margin="218,160,0,0" VerticalAlignment="Top" Height="78" Width="82" Click="button_Click" IsEnabled="False" Background="Yellow"/>
+        <Button x:Name="b7" Content="" HorizontalAlignment="Left" Margin="33,243,0,0" VerticalAlignment="Top" Height="86" Width="83" Click="button_Click" IsEnabled="False" Background="Yellow"/>
+        <Button x:Name="b8" Content="" HorizontalAlignment="Center" Margin="0,243,0,0" VerticalAlignment="Top" Height="86" Width="92" Click="button_Click" IsEnabled="False" Background="Yellow"/>
+        <Button x:Name="b9" Content="" HorizontalAlignment="Left" Margin="218,243,0,0" VerticalAlignment="Top" Height="86" Width="82" Click="button_Click" IsEnabled="False" Background="Yellow"/>
+        <Button x:Name="NewGame" Content="Новая игра" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Height="59" Width="184" FontSize="18" Click="Newgame_Click"/>
+    </Grid>
+</Window>

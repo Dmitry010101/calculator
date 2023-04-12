@@ -1,0 +1,22 @@
+﻿<Window x:Class="P.firstrole"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:P"
+        mc:Ignorable="d"
+        Title="firstrole" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="firstrol"/>
+        <TextBlock HorizontalAlignment="Left" Margin="333,50,0,0" TextWrapping="Wrap" Text="Добро пожаловать!" VerticalAlignment="Top" Width="180" Height="33"/>
+        <TextBlock HorizontalAlignment="Left" Margin="707,10,0,0" TextWrapping="Wrap" Text="Роль: Админ" VerticalAlignment="Top" Width="84"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,95,0,0" TextWrapping="Wrap" Text="Выберите одну из доступным таблиц:" VerticalAlignment="Top" Width="231" Height="33"/>
+        <Button Content="Employees" HorizontalAlignment="Left" Margin="10,133,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Click="Button_Click3" Width="79"/>
+        <Button Content="Restoran" HorizontalAlignment="Left" Margin="10,242,0,0" VerticalAlignment="Top" Click="Button_Click_2" Width="79"/>
+        <Button Content="Orders" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" Click="Button_Click_1" Width="79"/>
+        <Button Content="shedules" HorizontalAlignment="Left" Margin="10,217,0,0" VerticalAlignment="Top" Click="Button_Click_5" Width="79"/>
+        <Button Content="suppliers" HorizontalAlignment="Left" Margin="10,267,0,0" VerticalAlignment="Top" Click="Button_Click_6" Width="79"/>
+        <Button Content="supplies" HorizontalAlignment="Left" Margin="10,302,0,0" VerticalAlignment="Top" Click="Button_Click_7" Width="79"/>
+        <Button Content="Добавление пользователя" HorizontalAlignment="Left" Margin="10,327,0,0" VerticalAlignment="Top" Width="152" Height="32" Click="Button_Click"/>
+    </Grid>
+</Window>

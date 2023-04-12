@@ -1,25 +1,41 @@
-﻿using System.Windows;
-using praktica.ExampleDBDataSetTableAdapters;
-
-namespace praktica
+﻿using P.tempdbDataSetTableAdapters;
+using System.Windows;
+using P.msdbDataSetTableAdapters;
+namespace P
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
-        buyersTableAdapter buyers = new buyersTableAdapter();
+        LoginDataTableAdapter adapter = new LoginDataTableAdapter();
         public MainWindow()
         {
             InitializeComponent();
-            buyersDataGrid.ItemsSource = buyers.GetData();  
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Window1 wim = new Window1();
-            wim.Show();
+           var ALLOGINS = adapter.GetData().Rows;
+            for (int i =0; i<ALLOGINS.Count; i++)
+            {
+              if (ALLOGINS[i][1].ToString() == login.Text &&  ALLOGINS[i][2].ToString() == Passwordtbx.Password )
+                {
+                int roleid = (int)ALLOGINS[i][3];
+                    switch(roleid)
+                    {
+                        case 1:
+                            firstrole role = new firstrole();
+                            role.Show();
+                            break;
+                        case 2:
+                            SecondRole second = new SecondRole();
+                            second.Show();
+                            break ;
+                    }
+                }
+            }
+
         }
-  
     }
 }
